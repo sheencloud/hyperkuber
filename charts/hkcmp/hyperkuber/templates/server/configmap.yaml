@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ template "hyperkuber.server" . }}"
+  labels:
+  {{ include "hyperkuber.labels" . | indent 4 }}
+data:
+  config.yaml: |-
+    server:
+      name : "Hk-Server"
+      listen : "0.0.0.0:{{ template "hyperkuber.server.containerPort" . }}"
+    mysql:
+    {{- if eq .Values.mysql.type "internal" }}
+      host : {{ template "hyperkuber.mysql" . }}
+      port : 3306
+      username : {{ .Values.mysql.username }}
+      password : {{ .Values.mysql.password }}
+      database : {{ .Values.mysql.database }}
+      migerate : {{ .Values.mysql.migerate }}
+    {{- else }}
+      host : {{ .Values.mysql.external.host }}
+      port : {{ .Values.mysql.external.port }}
+      username : {{ .Values.mysql.external.username }}
+      password : {{ .Values.mysql.external.password }}
+      database : {{ .Values.mysql.external.database }}
+      migerate : {{ .Values.mysql.external.migerate }}
+    {{- end }}
+
+    redis:
+    {{- if eq .Values.redis.type "internal" }}
+      addr : {{ template "hyperkuber.redis" . }}:6379
+      password : {{ .Values.redis.password }}
+    {{- else }}
+      addr : {{ .Values.redis.external.addr }}
+      password : {{ .Values.redis.external.password }}
+    {{- end }}

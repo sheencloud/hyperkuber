@@ -1,0 +1,13 @@
+dependencies:
+  - name: mysql
+    version: 8.8.28
+    repository: https://charts.bitnami.com/bitnami/
+    condition: mysql.enabled
+    tags:
+      - mysql
+  - name: redis
+    version: 16.8.6
+    repository: https://charts.bitnami.com/bitnami/
+    condition: redis.enabled
+    tags:
+      - redis
