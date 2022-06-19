@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hyperkuber.fullname" . }}
+  name: {{ include "hyperkuber.server" . }}
   labels:
     {{- include "hyperkuber.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.server.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.server.service.port }}
       targetPort: http
       protocol: TCP
       name: http

@@ -61,10 +61,34 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "hyperkuber.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "hyperkuber.fullname" .) .Values.serviceAccount.name }}
+{{- define "hyperkuber.portal.serviceAccountName" -}}
+{{- if .Values.portal.serviceAccount.create }}
+{{- default (include "hyperkuber.portal" .) .Values.portal.serviceAccount.name }}
 {{- else }}
-{{- default "default" .Values.serviceAccount.name }}
+{{- default "default" .Values.portal.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "hyperkuber.server.serviceAccountName" -}}
+{{- if .Values.server.serviceAccount.create }}
+{{- default (include "hyperkuber.server" .) .Values.server.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.server.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{- define "mysql.fullname" -}}
+{{- printf "%s-%s" .Release.Name "mysql" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{- define "redis.fullname" -}}
+{{- printf "%s-%s" .Release.Name "redis" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+{{- define "hyperkuber.ingress.apiVersion" -}}
+{{- if semverCompare "<1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+{{- print "extensions/v1beta1" -}}
+{{- else -}}
+{{- print "networking.k8s.io/v1beta1" -}}
+{{- end -}}
+{{- end -}}

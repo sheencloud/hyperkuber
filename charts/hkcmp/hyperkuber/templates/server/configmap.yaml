@@ -3,34 +3,34 @@ kind: ConfigMap
 metadata:
   name: "{{ template "hyperkuber.server" . }}"
   labels:
-  {{ include "hyperkuber.labels" . | indent 4 }}
+    {{- include "hyperkuber.labels" . | nindent 4 }}
 data:
   config.yaml: |-
     server:
       name : "Hk-Server"
-      listen : "0.0.0.0:{{ template "hyperkuber.server.containerPort" . }}"
+      listen : "0.0.0.0:8080"
     mysql:
-    {{- if eq .Values.mysql.type "internal" }}
-      host : {{ template "hyperkuber.mysql" . }}
-      port : 3306
-      username : {{ .Values.mysql.username }}
-      password : {{ .Values.mysql.password }}
-      database : {{ .Values.mysql.database }}
-      migerate : {{ .Values.mysql.migerate }}
+    {{- if .Values.mysql.enabled }}
+      host : {{ include "mysql.fullname" . | quote }}
+      port : {{ .Values.mysql.service.ports.mysql }}
+      username : {{ .Values.mysql.auth.username }}
+      password : {{ .Values.mysql.auth.password }}
+      database : {{ .Values.mysql.auth.database }}
+      migerate : {{ .Values.server.db.migerate }}
     {{- else }}
-      host : {{ .Values.mysql.external.host }}
-      port : {{ .Values.mysql.external.port }}
-      username : {{ .Values.mysql.external.username }}
-      password : {{ .Values.mysql.external.password }}
-      database : {{ .Values.mysql.external.database }}
-      migerate : {{ .Values.mysql.external.migerate }}
+      host : {{ .Values.externalMysql.host }}
+      port : {{ .Values.externalMysql.port }}
+      username : {{ .Values.externalMysql.username }}
+      password : {{ .Values.externalMysql.password }}
+      database : {{ .Values.externalMysql.database }}
+      migerate : {{ .Values.server.db.migerate }}
     {{- end }}
 
     redis:
     {{- if eq .Values.redis.type "internal" }}
-      addr : {{ template "hyperkuber.redis" . }}:6379
+      addr : {{ include "redis.fullname" . | quote }}:{{ .Values.redis.service.ports.redis }}
       password : {{ .Values.redis.password }}
     {{- else }}
-      addr : {{ .Values.redis.external.addr }}
-      password : {{ .Values.redis.external.password }}
+      addr : {{ .Values.externalRedis.addr }}
+      password : {{ .Values.externalRedis.password }}
     {{- end }}
