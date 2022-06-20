@@ -5,33 +5,31 @@ metadata:
   name: {{ template "hyperkuber.portal" . }}
   labels: {{- include "hyperkuber.labels" . | nindent 4 }}
   annotations:
-    {{- if .Values.portal.ingress.certManager }}
+    {{- if .Values.ingress.certManager }}
     kubernetes.io/tls-acme: "true"
     {{- end }}
     {{- if .Values.portal.ingress.annotations }}
-    {{- include "hyperkuber.tplValue" (dict "value" .Values.ingress.annotations "context" $) | nindent 4 }}
+    {{ toYaml .Values.portal.ingress.annotations | indent 4 }}
     {{- end }}
 spec:
-  {{- if .Values.portal.ingress.ingressClassName }}
-  ingressClassName: {{ .Values.portal.ingress.ingressClassName | quote }}
-  {{- end }}
   rules:
     {{- if .Values.portal.ingress.hostname }}
-    - host: {{ .Values.portal.ingress.hostname | quote }}
+    - host: {{ .Values.portal.ingress.hostname }}
       http:
         paths:
-          - path: {{ .Values.portal.ingress.path }}
-            {{- if .Values.portal.ingress.pathType) }}
-            pathType: {{ .Values.portal.ingress.pathType }}
-            {{- end }}
-            backend: {{- include  "hyperkuber.portal" . }}
+          - path: /
+            backend:
+              serviceName: {{ template "hyperkuber.portal" . }}
+              servicePort: http
     {{- end }}
-  {{- if .Values.portal.ingress.tls}}
+  {{- if .Values.portal.ingress.tls }}
   tls:
-    {{- if .Values.portal.ingress.tls }}
-    - hosts:
-        - {{ .Values.portal.ingress.hostname | quote }}
-      secretName: {{ printf "%s-tls" .Values.portal.ingress.hostname }}
+  {{- if .Values.portal.ingress.secretName }}
+  - secretName: {{ .Values.portal.ingress.secretName }}
+      {{- end }}
+    {{- if .Values.portal.ingress.hostname }}
+    hosts:
+    - {{ .Values.portal.ingress.hostname }}
     {{- end }}
   {{- end }}
 {{- end }}
