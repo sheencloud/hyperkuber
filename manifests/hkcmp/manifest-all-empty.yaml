@@ -127,12 +127,18 @@ spec:
         app: portal
     spec:
       containers:
-        - image: sheencloud/hyperkuber-portal
+        - image: sheencloud/hyperkuber-web
           imagePullPolicy: Always
           name: hyperkuber-portal
+          securityContext:
+            privileged: true
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          env:
+          # Use secret in real usage
+          - name: HYPERKUBER_SERVER_ADDRESS
+            value: "server:8080"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -155,6 +161,25 @@ spec:
     app: portal
   sessionAffinity: None
   type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portal
+  namespace: hyperkuber
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portal
+            port:
+              number: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -194,6 +219,11 @@ spec:
                 secretKeyRef:
                   name: mysql-secrets
                   key: mysql-password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: mysql-database
           ports:
             - containerPort: 3306
               name: mysql
@@ -225,11 +255,13 @@ apiVersion: v1
 kind: Secret  
 metadata:  
   name: mysql-secrets
+  namespace: hyperkuber
 type: Opaque  
 data:  
   mysql-root-password: SHlwZXJrdWJlcg==
   mysql-user: aHlwZXJrdWJlcg==
   mysql-password: aHlwZXJrdWJlcg==
+  mysql-database: aHlwZXJrdWJlcg==
 ---
 ---
 kind: ConfigMap
@@ -246,7 +278,7 @@ data:
     bind 0.0.0.0
     appendonly yes
     protected-mode no
-    requirepass Hyperkuber
+    requirepass ""
     pidfile /data/redis-6379.pid
 ---
 apiVersion: v1
@@ -288,7 +320,7 @@ spec:
           command:
             - "sh"
             - "-c"
-            - "echo 2048 > /proc/sys/net/core/somaxconn && echo never > /sys/kernel/mm/transparent_hugepage/enabled"
+            - "echo 2048 > /proc/sys/net/core/somaxconn && echo 1 > /proc/sys/vm/overcommit_memory && echo never > /sys/kernel/mm/transparent_hugepage/enabled"
           securityContext:
             privileged: true
             runAsUser: 0
