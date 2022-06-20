@@ -1,0 +1,18 @@
+From registry.access.redhat.com/ubi8/ubi-minimal:8.6-751
+
+ARG K8S_VERSION=v1.22.0
+ARG ARG OC_VERSION=4.5
+ARG HELM_URL=https://raw.githubusercontent.com/sheencloud/hyperkuber-server/main/deploy/helm/helm.tar.gz?token=GHSAT0AAAAAABVZZCIT5KRIQNBEH3TUERWWYVQTC3Q
+
+RUN microdnf install tar gzip -y
+
+RUN curl -o /usr/local/bin/kubectl -L https://dl.k8s.io/release/$K8S_VERSION/bin/linux/amd64/kubectl
+
+RUN curl -sLo /tmp/oc.tar.gz https://mirror.openshift.com/pub/openshift-v$(echo $OC_VERSION | cut -d'.' -f 1)/clients/oc/$OC_VERSION/linux/oc.tar.gz && \
+    tar xzvf /tmp/oc.tar.gz -C /usr/local/bin/ && \
+    rm -rf /tmp/oc.tar.gz && \
+RUN microdnf clean
+
+ADD helm.tar.gz /usr/local/bin/
+
+CMD ["/bin/bash"]
