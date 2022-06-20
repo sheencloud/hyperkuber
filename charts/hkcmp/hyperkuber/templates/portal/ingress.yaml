@@ -5,9 +5,6 @@ metadata:
   name: {{ template "hyperkuber.portal" . }}
   labels: {{- include "hyperkuber.labels" . | nindent 4 }}
   annotations:
-    {{- if .Values.ingress.certManager }}
-    kubernetes.io/tls-acme: "true"
-    {{- end }}
     {{- if .Values.portal.ingress.annotations }}
     {{ toYaml .Values.portal.ingress.annotations | indent 4 }}
     {{- end }}
@@ -17,10 +14,13 @@ spec:
     - host: {{ .Values.portal.ingress.hostname }}
       http:
         paths:
-          - path: /
+          - pathType: Prefix
+            path: /
             backend:
-              serviceName: {{ template "hyperkuber.portal" . }}
-              servicePort: http
+              service:
+                name: {{ template "hyperkuber.portal" . }}
+                port:
+                  number: 80
     {{- end }}
   {{- if .Values.portal.ingress.tls }}
   tls:

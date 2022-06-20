@@ -4,10 +4,10 @@
 portal:
   replicaCount: 1
   image:
-    repository: nginx
+    repository: sheencloud/hyperkuber-web
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "latest"
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -35,7 +35,7 @@ portal:
   ingress:
     ## Set to true to enable ingress record generation
     ##
-    enabled: false
+    enabled: true
 
     ## Set this to true in order to add the corresponding annotations for cert-manager
     ##
@@ -91,15 +91,15 @@ portal:
 server:
   replicaCount: 1
   image:
-    repository: nginx
+    repository: sheencloud/hyperkuber-server
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: ""
+    tag: "latest"
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
   persistence:
-    enabled: true
+    enabled: false
     ## hyperkuber data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -113,7 +113,7 @@ server:
     ## the existingClaim variable
     # existingClaim: your-claim
     accessMode: ReadWriteOnce
-    size: 50Gi
+    size: 20Gi
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
@@ -160,7 +160,7 @@ server:
 
 mysql:
   ## Whether to deploy a mysql server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
-  enabled: true
+  enabled: false
   ## https://raw.githubusercontent.com/bitnami/charts/master/bitnami/mysql/values.yaml
   auth:
     ## @param auth.rootPassword Password for the `root` user. Ignored if existing secret is provided
@@ -193,7 +193,7 @@ mysql:
 externalMysql:
   host: "mysql"
   port: 3306
-  username: "root"
+  username: "hyperkuber"
   password: "hyperkuber"
   database: "hyperkuber"
   migerate : true
@@ -202,7 +202,7 @@ externalMysql:
 redis:
   ## Whether to deploy a redis server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
   ## https://raw.githubusercontent.com/bitnami/charts/master/bitnami/redis/values.yaml
-  enabled: true
+  enabled: false
   ## @section Redis&reg; common configuration parameters
   ## https://github.com/bitnami/bitnami-docker-redis#configuration
   ##
