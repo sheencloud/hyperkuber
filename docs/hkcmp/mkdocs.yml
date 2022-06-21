@@ -1,1 +1,6 @@
-site_name: My Docs
+site_name: HyperKuber  
+theme: 
+  logo: assets/logo.png
+  name: material
+  language: zh
+  highlightjs: true
