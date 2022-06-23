@@ -31,6 +31,9 @@ spec:
             {{- toYaml .Values.portal.securityContext | nindent 12 }}
           image: "{{ .Values.portal.image.repository }}:{{ .Values.portal.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.portal.image.pullPolicy }}
+          env:
+          - name: SMTP_USER
+            value: http://{{ include "hyperkuber.server" . }}:8080
           ports:
             - name: http
               containerPort: 80

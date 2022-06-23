@@ -11,7 +11,7 @@ data:
       listen : "0.0.0.0:8080"
     mysql:
     {{- if .Values.mysql.enabled }}
-      host : {{ include "mysql.fullname" . | quote }}
+      host : {{ include "mysql.fullname" . }}
       port : {{ .Values.mysql.service.ports.mysql }}
       username : {{ .Values.mysql.auth.username }}
       password : {{ .Values.mysql.auth.password }}
@@ -27,8 +27,8 @@ data:
     {{- end }}
 
     redis:
-    {{- if eq .Values.redis.type "internal" }}
-      addr : {{ include "redis.fullname" . | quote }}:{{ .Values.redis.service.ports.redis }}
+    {{- if .Values.redis.enabled }}
+      addr : {{ include "redis.fullname" . }}-master:{{ .Values.redis.service.ports.redis }}
       password : {{ .Values.redis.password }}
     {{- else }}
       addr : {{ .Values.externalRedis.addr }}

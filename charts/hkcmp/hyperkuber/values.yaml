@@ -160,8 +160,11 @@ server:
 
 mysql:
   ## Whether to deploy a mysql server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
-  enabled: false
+  enabled: true
   ## https://raw.githubusercontent.com/bitnami/charts/master/bitnami/mysql/values.yaml
+  primary:
+    persistence:
+      enabled: false
   auth:
     ## @param auth.rootPassword Password for the `root` user. Ignored if existing secret is provided
     ## ref: https://github.com/bitnami/bitnami-docker-mysql#setting-the-root-password-on-first-run
@@ -202,11 +205,13 @@ externalMysql:
 redis:
   ## Whether to deploy a redis server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
   ## https://raw.githubusercontent.com/bitnami/charts/master/bitnami/redis/values.yaml
-  enabled: false
+  enabled: true
   ## @section Redis&reg; common configuration parameters
   ## https://github.com/bitnami/bitnami-docker-redis#configuration
   ##
-
+  master:
+    persistence:
+      enabled: false
   ## @param architecture Redis&reg; architecture. Allowed values: `standalone` or `replication`
   ##
   architecture: standalone
@@ -232,6 +237,7 @@ redis:
     ##
     ports:
       redis: 6379
+
 
 externalRedis:
   # support redis, redis+sentinel

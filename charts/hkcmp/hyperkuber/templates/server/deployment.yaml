@@ -37,14 +37,34 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /livez
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: /livez
               port: http
           resources:
             {{- toYaml .Values.server.resources | nindent 12 }}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /hk/config
+          - name: chart-volume
+            mountPath: /opt/hyperkuber/helm/
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: config.yaml
+                path: config.yaml
+            name: {{ include "hyperkuber.server" . }}
+          name: config-volume
+        - name: chart-volume
+          {{- if .Values.server.persistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.server.persistence.existingClaim | default (include "hyperkuber.fullname" .) }}
+          {{- else }}
+          emptyDir: {}
+          {{ end }}
       {{- with .Values.server.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
