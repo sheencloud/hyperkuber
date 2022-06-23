@@ -18,28 +18,9 @@ nav:
   - Installation:
       - Quick Start: "deploy/manifest.md"
       - Helm Chart: "deploy/helm.md"
-      - Operatoir: "deploy/operator.md"
+      - Operator: "deploy/operator.md"
   - User guide:
-      - Hyperkuber License:
-          - Introduction: "user-guide/nginx-configuration/index.md"
-          - Basic usage: "user-guide/basic-usage.md"
-          - Annotations: "user-guide/nginx-configuration/annotations.md"
-          - ConfigMap: "user-guide/nginx-configuration/configmap.md"
-          - Custom NGINX template: "user-guide/nginx-configuration/custom-template.md"
-          - Log format: "user-guide/nginx-configuration/log-format.md"
-      - Cluster: "user-guide/cli-arguments.md"
-      - Custom errors: "user-guide/custom-errors.md"
-      - Default backend: "user-guide/default-backend.md"
-      - Exposing TCP and UDP services: "user-guide/exposing-tcp-udp-services.md"
-      - Exposing FCGI services: "user-guide/fcgi-services.md"
-      - Regular expressions in paths: user-guide/ingress-path-matching.md
-      - External Articles: "user-guide/external-articles.md"
-      - Miscellaneous: "user-guide/miscellaneous.md"
-      - Prometheus and Grafana installation: "user-guide/monitoring.md"
-      - Multiple Ingress controllers: "user-guide/multiple-ingress.md"
-      - TLS/HTTPS: "user-guide/tls.md"
-      - Third party addons:
-          - ModSecurity Web Application Firewall: "user-guide/third-party-addons/modsecurity.md"
-          - OpenTracing: "user-guide/third-party-addons/opentracing.md"
+      - Hyperkuber License: "user-guide/license.md"
+      - Cluster: "user-guide/cluster.md"
   - About us:
       - About: "about.md"
