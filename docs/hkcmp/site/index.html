@@ -1,0 +1,2669 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.6">
+    
+    
+      
+        <title>HyperKuber</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="." title="HyperKuber" class="md-header__button md-logo" aria-label="HyperKuber" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HyperKuber
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              介绍
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="HyperKuber" class="md-nav__button md-logo" aria-label="HyperKuber" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    HyperKuber
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          介绍
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        介绍
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    监控告警架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    日志架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmdb" class="md-nav__link">
+    CMDB架构
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    监控告警架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    日志架构
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmdb" class="md-nav__link">
+    CMDB架构
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="_1">介绍</h1>
+<p>略</p>
+<h2 id="_2">监控告警架构</h2>
+<p>目前鲁班产品采用Prometheus的整体架构，同时也参照kingsoft cloud的eagles监控架构修改，eagles目前采用架构为：</p>
+<p><img alt="image-20210324200100002" src="introduction.assets/image-20210324200100002.png" /></p>
+<p>prometheus的原架构：</p>
+<p><img src="Untitled.assets/image-20210324200315142.png" alt="image-20210324200315142" style="zoom:50%;" /></p>
+<p>目前鲁班架构增加luban_agent接受原有的eagles的自定义监控脚本，增加node_exporter物理机监控，增加告警历史存储到elasticsearch以及实时告警处理推送飞书，具体架构如下：</p>
+<p><img src="introduction.assets/image-20210522152828743.png" alt="image-20210522152828743" style="zoom:50%;" /></p>
+<h2 id="_3">日志架构</h2>
+<p>在日志收集中，都是使用的filebeat+ELK的日志架构。但是如果业务每天会产生海量的日志，就有可能引发logstash和elasticsearch的性能瓶颈问题。因此改善这一问题的方法就是filebeat+kafka+logstash+ELK，
+也就是将存储从elasticsearch转移给消息中间件，减少海量数据引起的宕机，降低elasticsearch的压力，这里的elasticsearch主要进行数据的分析处理，然后交给kibana进行界面展示</p>
+<p><img src="introduction.assets/image-20210522152858428.png" alt="image-20210522152858428" style="zoom:50%;" /></p>
+<h2 id="cmdb">CMDB架构</h2>
+<p>Dgraph组件包括三个部分：   </p>
+<p>Zero: 是集群的核心, 负责调度集群服务器和平衡服务器组之间的数据，类比于Elasticsearch的master节点；
+Alpha: 保存数据的 谓词 和 索引. 谓词包括数据的 属性 和数据之间的 关系; 索引是为了更快的进行数据的过滤和查找，类比于Elasticsearch的data节点；
+Ratel: dgraph 的 UI 接口, 可以在此界面上进行数据的 CURD, 也可以修改数据的 schema，类比于Elasticsearch的kibana角色</p>
+<p><img src="introduction.assets/image-20210522155547554.png" alt="image-20210522155547554" style="zoom:50%;" /></p>
+<h1 id="_4">安装步骤</h1>
+<h2 id="_5">环境准备</h2>
+<p>目前鲁班的组件（除监控数据采集端的node_exporter以及luban_agent是部署在物理机服务器上之外，其他组件均部署在kubernetes集群中，安装鲁班组件之前需要初始化一个高可用的kubernetes集群，集群最低配置如下，计算资源与存储资源根据监控数据量以及存储数据量适当加大。</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>服务器名称</th>
+<th>主机名</th>
+<th>计算资源</th>
+<th>磁盘（见存储资源规划）</th>
+<th>推荐网卡</th>
+<th>操作系统</th>
+<th>描述</th>
+<th>网络类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>管理节点（3台做高可用，虚拟机或者物理机）</td>
+<td>Master1</td>
+<td>x.x.x.x</td>
+<td>8C16G</td>
+<td>1、每台虚机系统盘，20G， 关闭swap          2、每台虚机单独加一块（裸）数据盘，100-500G，作为Docker VG          3、每台虚机单独加一块数据盘，50G，作为ETCD数据存储     挂载点：/var/lib/etcd      文件系统： xfs</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>管理节点</td>
+<td>物理网络或VLAN类型的虚拟网络</td>
+<td></td>
+</tr>
+<tr>
+<td>管理节点（3台做高可用，虚拟机或者物理机）</td>
+<td>Master2</td>
+<td>x.x.x.x</td>
+<td>8C16G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>管理节点</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>管理节点（3台做高可用，虚拟机或者物理机）</td>
+<td>Master3</td>
+<td>x.x.x.x</td>
+<td>8C16G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>管理节点</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>计算节点</td>
+<td>Worker1</td>
+<td>x.x.x.x</td>
+<td>8C32G</td>
+<td>1、每台虚机系统盘，20G， 关闭swap          2、每台虚机单独加一块（裸）数据盘，100G-500G，作为Docker VG</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>计算节点</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>计算节点</td>
+<td>Worker2</td>
+<td>x.x.x.x</td>
+<td>8C32G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>计算节点</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>计算节点</td>
+<td>Worker.......</td>
+<td>x.x.x.x</td>
+<td>8C32G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>计算节点</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>镜像仓库（虚拟机）</td>
+<td>Registry1</td>
+<td>x.x.x.x</td>
+<td>4C8G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>仓库</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>镜像仓库（虚拟机）</td>
+<td>Registr2</td>
+<td>x.x.x.x</td>
+<td>4C8G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>仓库</td>
+<td>同上</td>
+<td></td>
+</tr>
+<tr>
+<td>MasterLb1     Master节点负载均衡</td>
+<td>MasterLb1</td>
+<td>x.x.x.x</td>
+<td>4C8G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>负载均衡</td>
+<td>同上</td>
+<td>或者使用slb</td>
+</tr>
+<tr>
+<td>MasterLb2     Master节点负载均衡</td>
+<td>MasterLb2</td>
+<td>x.x.x.x</td>
+<td>4C8G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>负载均衡</td>
+<td>同上</td>
+<td>或者使用slb</td>
+</tr>
+<tr>
+<td>Registry节点负载均衡</td>
+<td>RouterLb1</td>
+<td>x.x.x.x</td>
+<td>4C8G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>负载均衡</td>
+<td>同上</td>
+<td>或者使用slb</td>
+</tr>
+<tr>
+<td>Registry节点负载均衡</td>
+<td>RouterLb2</td>
+<td>x.x.x.x</td>
+<td>4C8G</td>
+<td>同上</td>
+<td>数量：1</td>
+<td>Centos7.x</td>
+<td>负载均衡</td>
+<td>同上</td>
+<td>或者使用slb</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kubernetes">安装Kubernetes</h2>
+<h3 id="_6">环境信息</h3>
+<table>
+<thead>
+<tr>
+<th align="left">主机名</th>
+<th align="left">IP地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">master0</td>
+<td align="left">192.168.0.2</td>
+</tr>
+<tr>
+<td align="left">master1</td>
+<td align="left">192.168.0.3</td>
+</tr>
+<tr>
+<td align="left">master2</td>
+<td align="left">192.168.0.4</td>
+</tr>
+<tr>
+<td align="left">node0</td>
+<td align="left">192.168.0.5</td>
+</tr>
+</tbody>
+</table>
+<p>服务器密码：123456</p>
+<h3 id="_7">高可用安装教程</h3>
+<p>只需要准备好服务器，在任意一台服务器上执行下面命令即可</p>
+<pre><code class="language-sh"># 下载并安装sealos, sealos是个golang的二进制工具，直接下载拷贝到bin目录即可, release页面也可下载
+wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/latest/sealos &amp;&amp; \
+    chmod +x sealos &amp;&amp; mv sealos /usr/bin 
+
+# 下载离线资源包
+wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/2fb10b1396f8c6674355fcc14a8cda7c-v1.20.0/kube1.20.0.tar.gz
+
+# 安装一个三master的kubernetes集群
+$ sealos init --passwd '123456' \
+    --master 192.168.0.2  --master 192.168.0.3  --master 192.168.0.4 \ 
+    --node 192.168.0.5 \
+    --pkg-url /root/kube1.20.0.tar.gz \
+    --version v1.20.0
+</code></pre>
+<p>参数含义</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名</th>
+<th align="left">含义</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">passwd</td>
+<td align="left">服务器密码</td>
+<td align="left">123456</td>
+</tr>
+<tr>
+<td align="left">master</td>
+<td align="left">k8s master节点IP地址</td>
+<td align="left">192.168.0.2</td>
+</tr>
+<tr>
+<td align="left">node</td>
+<td align="left">k8s node节点IP地址</td>
+<td align="left">192.168.0.3</td>
+</tr>
+<tr>
+<td align="left">pkg-url</td>
+<td align="left">离线资源包地址，支持下载到本地，或者一个远程地址</td>
+<td align="left">/root/kube1.20.0.tar.gz</td>
+</tr>
+<tr>
+<td align="left">version</td>
+<td align="left"><a href="https://www.sealyun.com/goodsDetail?type=cloud_kernel&amp;name=kubernetes">资源包</a>对应的版本</td>
+<td align="left">v1.20.0</td>
+</tr>
+</tbody>
+</table>
+<p>增加master</p>
+<pre><code class="language-shell">sealos join --master 192.168.0.6 --master 192.168.0.7
+sealos join --master 192.168.0.6-192.168.0.9  # 或者多个连续IP
+</code></pre>
+<p>增加node</p>
+<pre><code class="language-shell">sealos join --node 192.168.0.6 --node 192.168.0.7
+sealos join --node 192.168.0.6-192.168.0.9  # 或者多个连续IP
+</code></pre>
+<p>删除指定master节点</p>
+<pre><code class="language-shell">sealos clean --master 192.168.0.6 --master 192.168.0.7
+sealos clean --master 192.168.0.6-192.168.0.9  # 或者多个连续IP
+</code></pre>
+<p>删除指定node节点</p>
+<pre><code class="language-shell">sealos clean --node 192.168.0.6 --node 192.168.0.7
+sealos clean --node 192.168.0.6-192.168.0.9  # 或者多个连续IP
+</code></pre>
+<p>清理集群</p>
+<pre><code class="language-shell">sealos clean --all
+</code></pre>
+<p>备份集群</p>
+<pre><code class="language-shell">sealos etcd save
+</code></pre>
+<h2 id="_8">安装服务网格</h2>
+<h3 id="istio">安装Istio</h3>
+<p>istio用于管理银河的服务，服务之间的权限设置。下载istioctl到安装环境 执行安装命令</p>
+<p>离线镜像列表</p>
+<pre><code>docker.io/istio/pilot:1.9.1
+docker.io/istio/proxyv2:1.9.1
+</code></pre>
+<p>同步镜像</p>
+<pre><code class="language-shell">for i in `cat image.txt`;do docker pull $i;done 
+for i in `cat image.txt`;do docker tag $i harbor.inner.galaxy.ksyun.com/istio/${i##*/};done
+for i in `cat image.txt`;do docker push harbor.inner.galaxy.ksyun.com/istio/${i##*/};done
+</code></pre>
+<p>安装</p>
+<pre><code>istioctl install --set profile=demo -y --set values.global.hub=&quot;harbor.inner.galaxy.ksyun.com/istio&quot;
+</code></pre>
+<h2 id="_9">安装监控告警组件</h2>
+<h3 id="prometheusalertmanager">安装Prometheus+Alertmanager</h3>
+<pre><code class="language-shell">kubectl create ns monitoring
+rm -rf custom-values.yaml
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+cat &lt;&lt;EOF &gt; custom-values.yaml
+prometheusOperator:
+  image:
+    repository: $REGISTRY/luban/prometheus-operator
+    tag: v0.45.0
+  prometheusConfigReloaderImage:
+    repository: $REGISTRY/luban/prometheus-config-reloader
+    tag: v0.45.0
+  admissionWebhooks:
+     patch:
+       image:
+         repository: $REGISTRY/luban/kube-webhook-certgen
+         tag: v1.5.0
+
+alertmanager:
+  alertmanagerSpec:
+    image:
+      repository: $REGISTRY/luban/alertmanager
+      tag: v0.21.0
+  config:
+    global:
+      resolve_timeout: 5m
+    route:
+      group_by: ['alertname']
+      group_wait: 30s
+      group_interval: 1m
+      repeat_interval: 1m
+
+prometheus:
+  prometheusSpec:
+    image:
+      repository: $REGISTRY/luban/prometheus
+      tag: v2.24.0
+kube-state-metrics:
+  image:
+    repository: $REGISTRY/luban/kube-state-metrics
+    tag: v1.9.8
+
+grafana:
+  image:
+    repository: $REGISTRY/luban/grafana
+    tag: 7.4.2
+  sidecar:
+    image:
+      repository: $REGISTRY/luban/k8s-sidecar
+      tag: 1.10.6
+  adminPassword: Kingsoft123
+
+prometheus-node-exporter:
+  image:
+    repository: $REGISTRY/luban/node-exporter
+    tag: v1.0.1
+EOF
+
+helm install pm ./kube-prometheus-stack-13.13.1.tgz -n monitoring -f custom-values.yaml
+</code></pre>
+<h3 id="agent">安装鲁班Agent</h3>
+<p>目前鲁班的版本发布放在青岛5服务器，后续会跟银河产品一下打包发布。</p>
+<p>centos65版本物理机服务器</p>
+<pre><code class="language-shell">#!/bin/sh
+
+export agent_http_server=&quot;http://10.177.152.168:8888/luban/luban_on_k8s/agent/luban_agent&quot;
+export bin_dir=&quot;/opt/luban/bin&quot;
+mkdir -p $bin_dir
+ps -aux |grep luban_agent|grep -v grep|awk '{print $2}'|xargs kill -9
+rm -rf $bin_dir/luban_agent
+curl -o $bin_dir/luban_agent $agent_http_server
+chmod a+x $bin_dir/luban_agent
+rm -rf /var/log/luban_agent.log
+
+cat &gt; /opt/luban/bin/start_agent.sh &lt;&lt; EOF
+nohup $bin_dir/luban_agent &gt;/var/log/luban_agent.log 2&gt;&amp;1 &amp;
+EOF
+chmod a+x /opt/luban/bin/start_agent.sh 
+
+cat &gt; /opt/luban/bin/stop_agent.sh &lt;&lt; EOF
+ps -aux |grep luban_agent|grep -v grep|awk '{print $2}'|xargs kill -9
+EOF
+chmod a+x /opt/luban/bin/stop_agent.sh 
+
+cat &gt; /etc/init.d/luban_agent &lt;&lt; EOF
+#!/bin/bash
+#
+# /etc/rc.d/init.d/luban_agent
+#
+#  Luban Agent 
+#
+#  description: Luban Agent
+#  processname: luban_agent
+#  chkconfig: - 85 15
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+PROGNAME=luban_agent
+PROG=/opt/luban/bin/\$PROGNAME
+USER=root
+LOGFILE=/var/log/luban_agent.log
+LOCKFILE=/var/run/\$PROGNAME.pid
+
+start() {
+    echo -n &quot;Starting \$PROGNAME: &quot;
+    daemon --user $USER --pidfile=&quot;\$LOCKFILE&quot; &quot;\$PROG &amp;&gt;\$LOGFILE &amp;&quot;
+    echo
+}
+
+stop() {
+    echo -n &quot;Shutting down $PROGNAME: &quot;
+    kill -9 \`pidof \$PROGNAME\`
+    rm -f $LOCKFILE
+    echo
+}
+
+
+case &quot;\$1&quot; in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $PROGNAME
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo &quot;Usage: service luban_agent {start|stop|status|restart}&quot;
+        exit 1
+        ;;
+esac
+EOF
+chmod a+x /etc/init.d/luban_agent
+service luban_agent start
+chkconfig luban_agent on
+</code></pre>
+<p>centos73的物理服务器</p>
+<pre><code class="language-shell">#!/bin/sh
+
+export http_server=&quot;http://10.177.9.11:8888/luban/&quot;
+export bin_dir=&quot;/opt/luban/bin&quot;
+mkdir -p $bin_dir
+rm -rf $bin_dir/*
+curl -o $bin_dir/luban_agent $http_server/luban_agent
+chmod a+x $bin_dir/*
+rm -rf /var/log/luban_agent.log
+
+cat &gt; /opt/luban/bin/start_agent.sh &lt;&lt; EOF
+nohup $bin_dir/luban_agent &gt;/var/log/luban_agent.log 2&gt;&amp;1 &amp;
+EOF
+chmod a+x /opt/luban/bin/start_agent.sh 
+
+cat &gt; /opt/luban/bin/stop_agent.sh &lt;&lt; EOF
+ps -aux |grep luban_agent|grep -v grep|awk '{print $2}'|xargs kill -9
+EOF
+chmod a+x /opt/luban/bin/stop_agent.sh 
+
+cat &gt; /usr/lib/systemd/system/luban_agent.service  &lt;&lt; EOF
+[Unit]
+Description=Luban agent
+After=network.target
+
+[Service]
+ExecStart=/opt/luban/bin/luban_agent &gt; /var/log/luban_agent.log
+ExecStop=kill -9 `pidof luban_agent`
+Type=notify
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+systemctl enable luban_agent 
+systemctl start luban_agent 
+</code></pre>
+<h3 id="node_exporter">安装Node_exporter</h3>
+<p>Node_exporter负责监控物理机服务器以及部署银河服务的虚拟机监控信息，监控主要包括cpu，内存，磁盘，网络</p>
+<p>安装步骤</p>
+<pre><code class="language-shell">#!/bin/sh
+export node_exporter_url=&quot;http://10.177.152.168:8888/luban/luban_on_k8s/install/node_exporter/node_exporter&quot;
+mkdir -p /opt/luban/bin/
+export node_exporter_binary=&quot;/opt/luban/bin/node_exporter&quot;
+rm -rf $node_exporter_binary
+curl -o $node_exporter_binary ${node_exporter_url}
+
+chmod a+x $node_exporter_binary
+ps -aux |grep $node_exporter_binary|awk '{print $2}'|xargs kill -9
+nohup $node_exporter_binary --collector.luban &gt;/var/log/node_exporter.log 2&gt;&amp;1 &amp;
+</code></pre>
+<h3 id="process_exporter">安装Process_exporter</h3>
+<p>Process_exporter负责监控物理机服务器以及部署银河服务的虚拟机监控信息，监控主要包括进程监控</p>
+<p>安装步骤</p>
+<pre><code class="language-shell">#!/bin/sh
+export process_exporter_url=&quot;http://10.177.152.168:8888/luban/luban_on_k8s/install/process_exporter/process-exporter&quot;
+mkdir -p /opt/luban/bin/
+mkdir -p /opt/luban/conf/
+export process_exporter_binary=&quot;/opt/luban/bin/process-exporter&quot;
+
+rm -rf $process_exporter_binary
+curl -o $process_exporter_binary ${process_exporter_url}
+chmod a+x $process_exporter_binary
+ps -aux |grep $process_exporter_binary |grep -v grep|awk '{print $2}'|xargs kill -9
+
+if [ ! -f &quot;/opt/luban/conf/process-name.yaml&quot; ];then
+  echo &quot;/opt/luban/conf/process-name.yaml not exist&quot;
+else
+  cp -rf /opt/luban/conf/process-name.yaml /opt/luban/conf/process-name.yaml.bak
+fi
+cat &gt; /opt/luban/conf/process-name.yaml &lt;&lt;EOF
+process_names:
+  - name: &quot;{
+   {.Comm}}&quot;
+    cmdline:
+    - '.+'
+EOF
+
+nohup $process_exporter_binary -config.path=/opt/luban/conf/process-name.yaml &gt;/var/log/process_exporter.log 2&gt;&amp;1 &amp;
+
+</code></pre>
+<h3 id="blackbox_exporter">安装Blackbox_exporter</h3>
+<p>Blackbox_exporter负责监控Ping，DNS，Telnet等监控</p>
+<p>安装步骤</p>
+<pre><code class="language-shell">#!/bin/sh
+
+kubectl apply -f blackbox_alert.yaml -f blackbox_exporter.yaml -f blackbox_monitor.yaml -n monitoring
+</code></pre>
+<h3 id="cluster_exporter">安装Cluster_exporter</h3>
+<p>Cluster_exporter负责监控Ebs,Ks3等存储总量信息以及使用量信息等监控</p>
+<p>安装步骤</p>
+<pre><code class="language-shell">#!/bin/sh
+
+kubectl apply -f cluster_exporter.yaml -n monitoring
+</code></pre>
+<pre><code>## 安装agent,以下10.177.9.1 物理服务器为例，ssh登录服务器,10.177.9.11为鲁班的http文件服务器
+export http_server=&quot;http://10.177.9.11:8888/luban/&quot;
+export bin_dir=&quot;/opt/luban/bin&quot;
+mkdir -p $bin_dir
+rm -rf $bin_dir/*
+curl -o $bin_dir/node_exporter http://10.177.9.11:8888/luban/node_exporter
+curl -o $bin_dir/luban_agent http://10.177.9.11:8888/luban/luban_agent
+chmod a+x $bin_dir/*
+
+## restart node_exporter
+ps -aux |grep node_exporter|grep -v grep|awk '{print $2}'|xargs kill -9
+echo &quot;node_exporter shutdown [ok]&quot;
+
+## restart luban_agent
+ps -aux |grep luban_agent|grep -v grep|awk '{print $2}'|xargs kill -9
+echo &quot;luban_agent shutdown [ok]&quot;
+
+## start node_exporter and luban_agent
+nohup $bin_dir/node_exporter --collector.luban &gt;/var/log/node_exporter.log 2&gt;&amp;1 &amp;
+echo &quot;node_exporter start [ok]&quot;
+nohup $bin_dir/luban_agent &gt;/var/log/luban_agent.log 2&gt;&amp;1 &amp;
+echo &quot;luban_agent start [ok]&quot;
+</code></pre>
+<p>安装完成后检查 node_exporter 以及luban_agent 是否正确运行</p>
+<pre><code>ps aux |grrep node_exporter
+ps aux |grrep luban_agent
+</code></pre>
+<h3 id="_10">安装自定义监控脚本</h3>
+<p>此步骤由运维同学安装底层银河环境时候，自动化安装，自定义监控脚本存放位置 http://newgit.op.ksyun.com/galaxy_cloud/monitor_scripts/tree/master/sdn_monitor_shell，由运维同学自动化安装，以下示例供研发同学参考</p>
+<p>以下mem_monitor.sh为例，脚本内容如下：</p>
+<pre><code>#!/bin/bash
+# 内存监控脚本
+
+source /etc/profile
+
+function send_data(){
+        ts=`date +%s`;
+        metric=$1;
+        endpoint=$4;
+        value=$2;
+        tags=$3
+        curl -X POST -d &quot;[{\&quot;metric\&quot;: \&quot;$metric\&quot;, \&quot;endpoint\&quot;: \&quot;$endpoint\&quot;, \&quot;timestamp\&quot;: $ts,\&quot;step\&quot;: 60,\&quot;value\&quot;: $value,\&quot;counterType\&quot;: \&quot;GAUGE\&quot;,\&quot;tags\&quot;: \&quot;$tags\&quot;}]&quot; http://127.0.0.1:1988/v1/push
+}
+
+item='mem_check'
+item1='crash_check'
+day=`date +%d`
+tag1='metric=crash_status'
+tag2='metric=/var/log/mcelog'
+tag3='metric=/var/log/messages'
+tag4='metric=/var/log/dmesg'
+now_time=`date +%F`
+hostn=`hostname`
+
+    # 判断是否有crash日志
+function crashlog(){
+    crash_log=`ls /var/crash/|grep &quot;$now_time&quot; |wc -l`
+    if [ $crash_log -eq 0 ];then
+        crash_status=1
+    else
+        crash_status=0
+    fi
+    echo $item $crash_status $tag1 $hostn crash
+    send_data $item1 $crash_status $tag1 $hostn crash
+}
+
+    # 判断是否有内存日志文件
+function mcelog(){
+    test -a /var/log/mcelog
+    if [ $? -eq 0 ];then
+    counts=`cat /var/log/mcelog|wc -l`
+    if [ $counts -eq 0 ];then
+        mcelog_status=1
+    else
+        mcelog_status=0
+    fi
+    else
+        mcelog_status=1
+    fi
+    echo $item $mcelog_status $tag2 $hostn mcelog
+    send_data $item $mcelog_status $tag2 $hostn mcelog
+}
+
+    # 判断日志
+function messagelog (){
+    message_log=`tail -n500 /var/log/messages|egrep -i 'err|fail' |egrep -i &quot;memory&quot; |egrep -v 'nova.compute.manager'|wc -l`
+    if [ $message_log -gt 1 ];then
+        mem_status=0
+    else
+        mem_status=1
+    fi
+    echo $item $mem_status $tag3 $hostn message
+    send_data $item $mem_status $tag3 $hostn message
+}
+
+    # 判断日志
+function dmesglog (){
+    dme_log1=`tail -n500 /var/log/dmesg|egrep -i &quot;err|fail&quot; |egrep -i &quot;memory&quot; |wc -l`
+    #dme_log2=`ssh $i dmesg |tail -n200 |egrep -i 'error|fail'|wc -l`
+    if [ $dme_log1 -gt 1 ];then
+        dme_status=0
+    else
+        dme_status=1
+    fi
+    echo $item $dme_status $tag4 $hostn dmesg
+    send_data $item $dme_status $tag4 $hostn dmesg
+}
+crashlog
+mcelog
+messagelog
+dmesglog
+</code></pre>
+<p>配置物理服务器上的crontab，如下图所示</p>
+<pre><code class="language-sh">cat /etc/crontab
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+
+# For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+*/1  *  *  *  * root bash /opt/luban/script/mem_monitor.sh
+</code></pre>
+<h2 id="_11">安装日志组件</h2>
+<p>目前日志的组件采用filebeat+kafka+logstash+ELK架构,参照http://ezone.ksyun.com/ezCode/luban/luban_on_k8s/tree中的logging文件夹中的README.md</p>
+<p>需要离线镜像列表</p>
+<pre><code>harbor.inner.galaxy.ksyun.com/luban/elasticsearch:7.10.1
+harbor.inner.galaxy.ksyun.com/luban/kibana:7.10.1
+harbor.inner.galaxy.ksyun.com/luban/filebeat:7.10.1
+harbor.inner.galaxy.ksyun.com/luban/kafka:2.7.0-debian-10-r1
+harbor.inner.galaxy.ksyun.com/luban/zookeeper:3.6.2-debian-10-r89
+harbor.inner.galaxy.ksyun.com/luban/logstash:7.10.1
+</code></pre>
+<h4 id="elasticsearch">安装Elasticsearch</h4>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+helm install es ./elasticsearch-7.10.1.tgz -n elastic-system --set imageTag=7.10.1 --set persistence.enabled=false --set image=$REGISTRY/luban/elasticsearch
+</code></pre>
+<h4 id="kibana">安装Kibana</h4>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+helm install kibana -n elastic-system ./kibana-7.10.1.tgz  --set imageTag=7.10.1 --set image=$REGISTRY/luban/kibana
+</code></pre>
+<h4 id="kafka">安装Kafka</h4>
+<p>注意kafka集群需要集群外访问权限，最好增加eip的slb绑定kubernetes集群的三个master节点</p>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+helm install kafka ./kafka-12.4.2.tgz -n elastic-system  --set persistence.enabled=false  --set image.registry=$REGISTRY --set image.repository=luban/kafka --set image.tag=2.7.0-debian-10-r1 --set zookeeper.image.registry=$REGISTRY --set zookeeper.image.repository=luban/zookeeper --set zookeeper.image.tag=3.6.2-debian-10-r89 --set zookeeper.persistence.enabled=false --set replicaCount=3 \
+--set externalAccess.enabled=true \
+--set externalAccess.service.type=NodePort \
+--set externalAccess.autoDiscovery.enabled=false \
+--set serviceAccount.create=true \
+--set rbac.create=true \
+--set externalAccess.service.nodePorts='{30092,30093,30094}' \
+--set externalAccess.service.domain=10.177.152.168 ##3*master节点的的slb的eip
+</code></pre>
+<h4 id="filebeates">安装Filebeat（集群内部，用于收集容器日志，直接上传es集群）</h4>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+helm install filebeat ./filebeat-7.10.1.tgz  -n elastic-system  --set imageTag=7.10.1 --set  image=$REGISTRY/luban/filebeat
+</code></pre>
+<h4 id="filebeatkafka">安装Filebeat（集群外部，用于收集服务器或者其他物理设备日志，写入kafka）</h4>
+<pre><code>rpm -ivh filebeat-7.10.1-x86_64.rpm
+</code></pre>
+<p>修改/etc/filebeat/filebeat.yml配置，官方地址：https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html</p>
+<h4 id="logstash">安装Logstash</h4>
+<p>注意修改logstash的配置文件values.yaml</p>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+helm install logstash ./logstash -n elastic-system  --set imageTag=7.10.1 --set image=$REGISTRY/luban/logstash
+</code></pre>
+<h4 id="curator">安装自动清理Curator</h4>
+<pre><code>helm install curator ./elasticsearch-curator -n elastic-system --set image.repository=harbor.inner.galaxy.ksyun.com/luban/curator --set image.tag=5.7.6
+</code></pre>
+<p>以下是自动化脚本</p>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+
+helm install es ./elasticsearch-7.10.1.tgz -n elastic-system --set imageTag=7.10.1 --set persistence.enabled=false --set image=$REGISTRY/luban/elasticsearch 
+
+helm install kibana -n elastic-system ./kibana-7.10.1.tgz  --set imageTag=7.10.1 --set image=$REGISTRY/luban/kibana
+
+helm install filebeat ./filebeat-7.10.1.tgz  -n elastic-system  --set imageTag=7.10.1 --set  image=$REGISTRY/luban/filebeat
+
+## 注意修改kafka的externalAccess.service.domain，用于其他物理服务器filebeat配置，10.177.152.168应为K8s的Master节点负载均衡IP
+helm install kafka ./kafka-12.4.2.tgz -n elastic-system  --set persistence.enabled=false  --set image.registry=$REGISTRY --set image.repository=luban/kafka --set image.tag=2.7.0-debian-10-r1 --set zookeeper.image.registry=$REGISTRY --set zookeeper.image.repository=luban/zookeeper --set zookeeper.image.tag=3.6.2-debian-10-r89 --set zookeeper.persistence.enabled=false --set replicaCount=3 \
+--set externalAccess.enabled=true \
+--set externalAccess.service.type=NodePort \
+--set externalAccess.autoDiscovery.enabled=false \
+--set serviceAccount.create=true \
+--set rbac.create=true \
+--set externalAccess.service.nodePorts='{30092,30093,30094}' \
+--set externalAccess.service.domain=10.177.152.168
+
+helm install logstash ./logstash -n elastic-system  --set imageTag=7.10.1 --set image=$REGISTRY/luban/logstash
+
+helm install curator ./elasticsearch-curator -n elastic-system --set image.repository=$REGISTRY/luban/curator --set image.tag=5.7.6
+</code></pre>
+<h2 id="cmdb_1">安装Cmdb组件</h2>
+<p>参照aws的dgraph HA架构，原文地址：</p>
+<p>https://aws.amazon.com/cn/blogs/opensource/dgraph-on-aws-setting-up-a-horizontally-scalable-graph-database/</p>
+<pre><code class="language-shell">MANIFEST=&quot;https://raw.githubusercontent.com/dgraph-io/dgraph/master/contrib/config/kubernetes/dgraph-ha/dgraph-ha.yaml&quot;
+
+kubectl apply --filename $MANIFEST
+</code></pre>
+<h2 id="_12">安装认证服务</h2>
+<h3 id="dex">安装Dex</h3>
+<p>开源项目dex，一个基于OpenID Connect的身份服务组件。 CoreOS已经将它用于生产环境，用户认证和授权是应用安全的一个重要部分，用户身份管理本身也是一个特别专业和复杂的问题，尤其对于企业应用而言， 安全的进行认证和授权是必选项，dex无疑是解决这一问题的一大利器。</p>
+<p>```shell
+kubectl create ns dex
+kubectl -n dex delete secret dex.example.com.tls
+kubectl -n dex create secret tls dex.example.com.tls --cert=./ssl/cert.pem --key=./ssl/key.pem</p>
+<p>cat &lt;&lt;EOF | kubectl -n dex apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dex
+  name: dex
+  namespace: dex
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dex
+  template:
+    metadata:
+      labels:
+        app: dex
+    spec:
+      serviceAccountName: dex # This is created below
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/luban/dex:v2.27.0 #or quay.io/dexidp/dex:v2.26.0
+        name: dex
+        command: ["/usr/local/bin/dex", "serve", "/etc/dex/cfg/config.yaml"]</p>
+<pre><code>    ports:
+    - name: https
+      containerPort: 5556
+
+    volumeMounts:
+    - name: config
+      mountPath: /etc/dex/cfg
+    - name: tls
+      mountPath: /etc/dex/tls
+    - name: data
+      mountPath: /data
+  volumes:
+  - name: config
+    configMap:
+      name: dex
+      items:
+      - key: config.yaml
+        path: config.yaml
+  - name: tls
+    secret:
+      secretName: dex.example.com.tls
+  - name: data
+    emptyDir: {}
+</code></pre>
+<hr />
+<p>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dex
+  namespace: dex
+data:
+  config.yaml: |
+    issuer: https://luban.dex.galaxy.cloud/dex
+    storage:
+      type: memory
+    logger:
+      level: debug
+      format: text
+    web:
+      http: 0.0.0.0:5556
+    expiry:
+      signingKeys: "6h"
+      idTokens: "24h"
+    connectors:
+    - type: ldap
+      name: ActiveDirectory
+      id: ladp
+      config:
+        host: openldap:389
+        insecureNoSSL: true
+        insecureSkipVerify: true
+        bindDN: cn=admin,dc=galaxy,dc=cloud
+        bindPW: Kingsoft123
+        usernamePrompt: Email Address
+        userSearch:
+          baseDN: ou=People,dc=galaxy,dc=cloud
+          filter: "(objectClass=inetOrgPerson)"
+          username: mail
+          idAttr: uid
+          emailAttr: mail
+          nameAttr: uid
+        groupSearch:
+          baseDN: ou=Groups,dc=galaxy,dc=cloud
+          filter: "(objectClass=groupOfUniqueNames)"
+          userAttr: uid
+          groupAttr: memberUid
+          nameAttr: cn
+    oauth2:
+      skipApprovalScreen: true
+    logger:
+      level: "debug"
+      format: text
+    staticClients:
+    - id: oidc-auth-client
+      redirectURIs:
+      - 'https://luban.auth.galaxy.cloud/callback'
+      - 'https://luban.idp.galaxy.cloud/idp/v1/token/callback'
+      - 'http://localhost/idp/v1/token/callback'
+      name: 'oidc-auth-client'
+      secret: ZXhhbXBsZS1hcHAtc2VjcmV0</p>
+<hr />
+<p>apiVersion: v1
+kind: Service
+metadata:
+  name: dex
+  namespace: dex
+spec:
+  ports:
+  - name: dex
+    port: 5556
+    protocol: TCP
+    targetPort: 5556
+  selector:
+    app: dex</p>
+<hr />
+<p>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: dex
+  name: dex
+  namespace: dex</p>
+<hr />
+<p>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dex
+rules:
+- apiGroups: ["dex.coreos.com"] # API group created by dex
+  resources: ["<em>"]
+  verbs: ["</em>"]
+- apiGroups: ["apiextensions.k8s.io"]
+  resources: ["customresourcedefinitions"]
+  verbs: ["create"] # To manage its own resources, dex must be able to create customresourcedefinitions</p>
+<hr />
+<p>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dex
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: dex
+subjects:
+- kind: ServiceAccount
+  name: dex           # Service account assigned to the dex pod, created above
+  namespace: dex  # The namespace dex is running in</p>
+<hr />
+<p>apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: authcodes.dex.coreos.com
+spec:
+  group: dex.coreos.com
+  names:
+    kind: AuthCode
+    listKind: AuthCodeList
+    plural: authcodes
+    singular: authcode
+  scope: Namespaced
+  version: v1</p>
+<hr />
+<p>apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: dex
+rules:
+- apiGroups: ["dex.coreos.com"] # API group created by dex
+  resources: ["<em>"]
+  verbs: ["</em>"]
+- apiGroups: ["apiextensions.k8s.io"]
+  resources: ["customresourcedefinitions"]
+  verbs: ["create"] # To manage its own resources identity must be able to create customresourcedefinitions.</p>
+<hr />
+<p>apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: dex
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: dex
+subjects:
+- kind: ServiceAccount
+  name: dex                 # Service account assigned to the dex pod.
+  namespace: dex
+EOF
+​<code></code></p>
+<h3 id="ldap">安装Ldap</h3>
+<p>Open-ldap</p>
+<pre><code class="language-shell">kubectl create ns dex
+helm install openldap ./openldap-1.2.7.tgz -f online-values.yaml -n dex
+</code></pre>
+<pre><code class="language-shell">## get password
+$ kubectl -n dex get secret openldap -o jsonpath=&quot;{.data.LDAP_ADMIN_PASSWORD}&quot; | base64 --decode; echo
+$ kubectl -n dex get secret openldap -o jsonpath=&quot;{.data.LDAP_CONFIG_PASSWORD}&quot; | base64 --decode; echo
+
+
+# node add ldap label
+$ kubectl label nodes ip-10-178-224-65 luban/ldap=&quot;&quot; --overwrite
+
+
+
+ldapsearch -x -H ldap://openldap:389 \
+                -b dc=galaxy,dc=cloud \
+                -D &quot;cn=admin,dc=galaxy,dc=cloud&quot; \
+                -w Kingsoft123
+</code></pre>
+<h3 id="kubernetes_1">配置Kubernetes认证服务</h3>
+<pre><code>## set kubernetes apiserver 
+
+- --oidc-issuer-url=https://luban.dex.galaxy.cloud/dex
+- --oidc-client-id=oidc-auth-client
+- --oidc-ca-file=/etc/kubernetes/ssl/dex-ca.pem
+- --oidc-username-claim=email
+- --oidc-groups-claim=groups
+
+</code></pre>
+<h2 id="_13">安装鲁班服务</h2>
+<h3 id="server">安装鲁班Server</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: server
+  name: server
+  namespace: luban
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: server
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: server
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/luban/server
+        imagePullPolicy: Always
+        name: server
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: server
+  name: server
+  namespace: luban
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: server
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: server-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.server.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: server
+spec:
+  hosts:
+    - &quot;luban.server.galaxy.cloud&quot;
+  gateways:
+    - server-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: server
+      corsPolicy:
+        allowOrigins:
+          - exact: &quot;*&quot;
+        allowMethods:
+          - GET
+          - POST
+          - PATCH
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowCredentials: false
+        allowHeaders:
+          - authorization
+        maxAge: &quot;24h&quot;
+</code></pre>
+<h3 id="idp">安装鲁班Idp</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: idp
+  name: idp
+  namespace: luban
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: idp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: idp
+    spec:
+      containers:
+      - args:
+        - --tls_cert=
+        - --tls_key=
+        - --domain=luban.idp.galaxy.cloud
+        - --ldap_base=dc=galaxy,dc=cloud
+        - --ldap_bind_password=Kingsoft123
+        - --ldap_bind_user=admin
+        - --ldap_group_ou=Groups
+        - --ldap_host=ldap-openldap.dex
+        - --ldap_port=389
+        - --ldap_user_ou=People
+        - --listin_addr=0.0.0.0
+        - --listin_port=80
+        - --oauth_client_id=oidc-auth-client
+        - --oauth_client_secrect=ZXhhbXBsZS1hcHAtc2VjcmV0
+        - --oauth_redirect_url=http://localhost/idp/v1/token/callback
+        - --oauth_scopes=openid,profile,email,offline_access,groups
+        - --oauth_token_url=http://dex.dex:5556/dex/token
+        - --oauth_url=http://dex.dex:5556/dex/auth
+        command:
+        - /app
+        image: harbor.inner.galaxy.ksyun.com/luban/idp
+        imagePullPolicy: Always
+        name: server
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: idp
+  name: idp
+  namespace: luban
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: idp
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: idp
+  namespace: luban
+spec:
+  gateways:
+  - idp-gateway
+  hosts:
+  - luban.idp.galaxy.cloud
+  http:
+  - corsPolicy:
+      allowCredentials: false
+      allowHeaders:
+      - authorization
+      allowMethods:
+      - GET
+      - POST
+      - PATCH
+      - PUT
+      - DELETE
+      - OPTIONS
+      allowOrigins:
+      - exact: '*'
+      maxAge: 24h
+    route:
+    - destination:
+        host: idp
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: idp-gateway
+  namespace: luban
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - luban.idp.galaxy.cloud
+    port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      mode: PASSTHROUGH
+  - hosts:
+    - luban.idp.galaxy.cloud
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+
+</code></pre>
+<h3 id="cmdbapi">安装鲁班CmdbApi</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cmdb
+  name: cmdb
+  namespace: luban
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: cmdb
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cmdb
+    spec:
+      containers:
+      - env:
+        - name: OS_USERNAME
+          value: admin
+        - name: OS_TENANT_NAME
+          value: admin
+        - name: OS_PASSWORD
+          value: ksc
+        - name: OS_AUTH_URL
+          value: http://10.177.147.1:35357/v2.0
+        - name: OS_REGION_NAME
+          value: SHPBSRegionOne
+        image: harbor.inner.galaxy.ksyun.com/luban/cmdb-api
+        imagePullPolicy: Always
+        name: cmdb
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cmdb
+  name: cmdb
+  namespace: luban
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: cmdb
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: cmdb-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.cmdb.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: cmdb
+spec:
+  hosts:
+    - &quot;luban.cmdb.galaxy.cloud&quot;
+  gateways:
+    - cmdb-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: cmdb
+      corsPolicy:
+        allowOrigins:
+          - exact: &quot;*&quot;
+        allowMethods:
+          - GET
+          - POST
+          - PATCH
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowCredentials: false
+        allowHeaders:
+          - authorization
+        maxAge: &quot;24h&quot;
+</code></pre>
+<h3 id="swagger">安装鲁班Swagger</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: swagger-ui
+  name: swagger-ui
+  namespace: luban
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: swagger-ui
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: swagger-ui
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/luban/swagger-ui
+        imagePullPolicy: Always
+        name: swagger-ui
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: swagger-ui
+  name: swagger-ui
+  namespace: luban
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: swagger-ui
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: swagger-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.swagger.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: swagger
+spec:
+  hosts:
+    - &quot;luban.swagger.galaxy.cloud&quot;
+  gateways:
+    - swagger-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 8080
+            host: swagger-ui
+</code></pre>
+<pre><code>#!/bin/sh
+kubectl apply -f cmdb-api.yaml -f luban-idp.yaml -f luban-server.yaml -f swagger.yaml -n luban
+</code></pre>
+<h3 id="elasticsearch_1">安装告警对接ElasticSearch</h3>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: alertmanager-warning
+  name: alertmanager-warning
+  namespace: monitoring
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: alertmanager-warning
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: alertmanager-warning
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/luban/alertmanager-output
+        imagePullPolicy: Always
+        name: alertmanager-output
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: alertmanager-warning
+  name: alertmanager-warning
+  namespace: monitoring
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: alertmanager-warning
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  labels:
+    alertmanagerConfig: warning
+    release: pm
+  name: warning
+  namespace: monitoring
+spec:
+  receivers:
+  - name: warning-hook
+    webhookConfigs:
+    - url: http://alertmanager-warning:8080/webhook
+  route:
+    groupBy:
+    - alertname
+    groupInterval: 1m
+    groupWait: 30s
+    receiver: warning-hook
+    repeatInterval: 1m
+</code></pre>
+<h3 id="_14">安装告警对接飞书</h3>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: alertmanager-feishu
+  name: alertmanager-feishu
+  namespace: monitoring
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: alertmanager-feishu
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: alertmanager-feishu
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/luban/feishu-webhook:latest
+        imagePullPolicy: Always
+        name: feishu-webhook
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: alertmanager-feishu
+  name: alertmanager-feishu
+  namespace: monitoring
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: alertmanager-feishu
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  labels:
+    alertmanagerConfig: feshu
+    release: pm
+  name: feishu
+  namespace: monitoring
+spec:
+  receivers:
+  - name: feishu-hook
+    webhookConfigs:
+    - url: http://alertmanager-feishu:8080/alertmanager-alert
+  route:
+    groupBy:
+    - alertname
+    groupInterval: 1m
+    groupWait: 30s
+    receiver: feishu-hook
+    repeatInterval: 1m
+</code></pre>
+<h3 id="_15">导入银河告警规则</h3>
+<pre><code>kubectl apply -f prometheus-rules -n monitoring
+</code></pre>
+<h3 id="_16">安装监控物理机</h3>
+<p>目前阶段需要手动安装prometheus监控的物理机列表，后续会自动发现物理机以及部署银河服务的虚拟机列表（暂时手动安装）</p>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: external-nodes
+  name: external-nodes
+  namespace: monitoring
+spec:
+  ports:
+  - name: metrics
+    port: 9100
+    protocol: TCP
+    targetPort: 9100
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  labels:
+    k8s-app: external-nodes
+  name: external-nodes
+  namespace: monitoring
+subsets:
+- addresses:
+  - ip: 10.177.16.2
+  - ip: 10.177.16.3
+  - ip: 10.177.16.4
+  - ip: 10.177.16.5
+  - ip: 10.177.16.6
+  - ip: 10.177.16.7
+  - ip: 10.177.9.11
+  - ip: 10.178.225.17
+  ports:
+  - name: metrics
+    port: 9100
+    protocol: TCP
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    k8s-app: external-nodes
+    release: pm
+  name: external-nodes
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 60s
+    port: metrics
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  selector:
+    matchLabels:
+      k8s-app: external-nodes
+</code></pre>
+<h2 id="_17">安装鲁班控制台</h2>
+<h3 id="base">安装鲁班Base</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: console-base
+  name: console-base
+  namespace: luban-fe
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: console-base
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: console-base
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/watt/luban-fe/console-base:latest
+        imagePullPolicy: Always
+        name: console-base
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: console-base
+  name: console-base
+  namespace: luban-fe
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: console-base
+  sessionAffinity: None
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: console-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.console.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: console
+spec:
+  hosts:
+    - &quot;luban.console.galaxy.cloud&quot;
+  gateways:
+    - console-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: console-base
+      corsPolicy:
+        allowOrigins:
+          - exact: &quot;*&quot;
+        allowMethods:
+          - GET
+          - POST
+          - PATCH
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowCredentials: false
+        allowHeaders:
+          - authorization
+        maxAge: &quot;24h&quot;
+</code></pre>
+<h3 id="system">安装鲁班System</h3>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: console-system
+  name: console-system
+  namespace: luban-fe
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: console-system
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: console-system
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/watt/luban-fe/console-system:latest
+        imagePullPolicy: Always
+        name: console-system
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: console-system
+  name: console-system
+  namespace: luban-fe
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: console-system
+  sessionAffinity: None
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: system-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.system.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: system
+spec:
+  hosts:
+    - &quot;luban.system.galaxy.cloud&quot;
+  gateways:
+    - system-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: console-system
+      corsPolicy:
+        allowOrigins:
+          - exact: &quot;*&quot;
+        allowMethods:
+          - GET
+          - POST
+          - PATCH
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowCredentials: false
+        allowHeaders:
+          - authorization
+        maxAge: &quot;24h&quot;
+</code></pre>
+<h3 id="monitor">安装鲁班Monitor</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: console-monitor
+  name: console-monitor
+  namespace: luban-fe
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: console-monitor
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: console-monitor
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/watt/luban-fe/console-monitor:latest
+        imagePullPolicy: Always
+        name: console-monitor
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: console-monitor
+  name: console-monitor
+  namespace: luban-fe
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: console-monitor
+  sessionAffinity: None
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: monitor-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.monitor.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: monitor
+spec:
+  hosts:
+    - &quot;luban.monitor.galaxy.cloud&quot;
+  gateways:
+    - monitor-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: console-monitor
+      corsPolicy:
+        allowOrigins:
+          - exact: &quot;*&quot;
+        allowMethods:
+          - GET
+          - POST
+          - PATCH
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowCredentials: false
+        allowHeaders:
+          - authorization
+        maxAge: &quot;24h&quot;
+</code></pre>
+<h3 id="demo">安装鲁班Demo</h3>
+<pre><code>---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: console-demo
+  name: console-demo
+  namespace: luban-fe
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: console-demo
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: console-demo
+    spec:
+      containers:
+      - image: harbor.inner.galaxy.ksyun.com/watt/luban-fe/console-demo:latest
+        imagePullPolicy: Always
+        name: console-demo
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: console-demo
+  name: console-demo
+  namespace: luban-fe
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: console-demo
+  sessionAffinity: None
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: demo-gateway
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - &quot;luban.demo.galaxy.cloud&quot;
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: demo
+spec:
+  hosts:
+    - &quot;luban.demo.galaxy.cloud&quot;
+  gateways:
+    - demo-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: console-demo
+      corsPolicy:
+        allowOrigins:
+          - exact: &quot;*&quot;
+        allowMethods:
+          - GET
+          - POST
+          - PATCH
+          - PUT
+          - DELETE
+          - OPTIONS
+        allowCredentials: false
+        allowHeaders:
+          - authorization
+        maxAge: &quot;24h&quot;
+</code></pre>
+<p>安装命令</p>
+<pre><code class="language-shell">#!/bin/sh
+kubectl apply -f base.yaml -f demo.yaml -f monitor.yaml -f system.yaml -n luban-fe
+</code></pre>
+<h1 id="_18">操作手册</h1>
+<h2 id="_19">监控</h2>
+<h4 id="prometheus">配置prometheus采集</h4>
+<p>目前研发阶段，需要手动配置prometheus采集，初次创建的时候，需要在k8s中创建ServiceMonitor的crd资源，后续会配合cmdb做服务自动发现，注册到k8s的endpoint。</p>
+<p>首次配置采集执行以下脚本：</p>
+<pre><code>cat &lt;&lt;EOF | kubectl -n monitoring apply -f -
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: external-nodes
+  name: external-nodes
+spec:
+  type: ClusterIP
+  ports:
+    - name: metrics
+      port: 9100
+      targetPort: 9100
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: external-nodes
+  name: external-nodes
+subsets:
+  - addresses:
+    - ip: 10.177.9.11
+    ports:
+      - name: metrics
+        port: 9100
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    k8s-app: external-nodes
+  name: external-nodes
+spec:
+  endpoints:
+    - interval: 60s
+      port: metrics
+  namespaceSelector:
+    matchNames:
+      - monitoring
+  selector:
+    matchLabels:
+      k8s-app: external-nodes
+EOF
+
+kubectl label servicemonitor external-nodes release=pm -n monitoring
+</code></pre>
+<p>如果后续需要增加监控资源，需要修改已经创建的endpoint，登录鲁班的Master节点，执行以下命令：</p>
+<pre><code> kubectl edit ep external-nodes -n monitoring
+ ## 增加或修改subsets字段，注意yaml格式
+</code></pre>
+<p>登录prometheus界面查看时候添加成功target ： http://10.177.152.168:9090/targets，搜索IP，状态为up</p>
+<p><img alt="image-20210325144059470" src="introduction.assets/image-20210325144059470.png" /></p>
+<p>登录graph，查看监控：http://10.177.152.168:9090/graph?g0.expr=crash_check&amp;g0.tab=0&amp;g0.stacked=0&amp;g0.range_input=1h</p>
+<p>输入监控项：比如crash_check</p>
+<p><img alt="image-20210325144237292" src="introduction.assets/image-20210325144237292.png" /></p>
+<p>支持label查询，参照wiki：<a href="https://wiki.op.ksyun.com/display/~WANGFENGTENG/PromQL">PromQL</a></p>
+<h4 id="_20">配置数据存放时间</h4>
+<pre><code> kubectl edit prometheuses.monitoring.coreos.com -n monitoring pm-kube-prometheus-stack-prometheus -o yaml
+</code></pre>
+<p><img alt="image-20210325172208009" src="introduction.assets/image-20210325172208009.png" /></p>
+<h2 id="_21">告警</h2>
+<h3 id="_22">配置告警</h3>
+<p>目前prometheus部署方式采用operator部署，创建告警策略PrometheusRule</p>
+<pre><code>cat &lt;&lt;EOF | kubectl -n monitoring apply -f -
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    app: kube-prometheus-stack
+    release: pm
+  name: test-alert-rules
+  namespace: monitoring
+spec:
+  groups:
+    - name: test   
+      rules:
+        - alert: customize-webhook-rule
+          annotations:
+            summary: summary '{{ $labels.target }}'  crash_check
+            description: description '{{ $labels.target }}' crash_check
+            message: message '{{ $labels.target }}' crash_check
+          expr: |
+            crash_check &lt;10
+          for: 1m
+          labels:
+            severity: critical
+            alertTag: vip
+EOF
+</code></pre>
+<p>告警规则也支持prometheus的各种label以及表达式，参照wiki：<a href="https://wiki.op.ksyun.com/display/~WANGFENGTENG/PromQL">PromQL</a></p>
+<p>登录prometheus界面查看rule是否创建 http://10.177.152.168:9090/rules</p>
+<p><img alt="image-20210325155822798" src="introduction.assets/image-20210325155822798.png" /></p>
+<h3 id="_23">告警规则操作</h3>
+<p>如果对已经创建的告警规则进行修改，登录kubectl命令操作k8s的中PrometheusRule资源，命名空间为monitoring</p>
+<pre><code>## 获取全部告警规则
+kubectl get PrometheusRule -n monitoring
+## 修改告警规则
+kubectl edit PrometheusRule {RuleName} -n monitoring
+</code></pre>
+<h3 id="_24">查看告警</h3>
+<p>登录alertmanager界面 http://10.177.152.168:9093/#/alerts查看告警</p>
+<p><img alt="image-20210325160509660" src="introduction.assets/image-20210325160509660.png" /></p>
+<p>登录elasticsearch界面[http://10.177.152.168:9601，查看告警历史，index为alertmanager*</p>
+<p><img alt="image-20210325160529568" src="introduction.assets/image-20210325160529568.png" /></p>
+<h3 id="webhook">配置WebHook</h3>
+<p>目前青岛5环境已经配置2个webhook，一个写入elasticsearch，用于告警历史查询；一个写入飞书，用于运维人员实时处理。</p>
+<p>配置命令如下</p>
+<pre><code>kubectl create deploy alertmanager-warning --image=harbor.inner.galaxy.ksyun.com/luban/alertmanager-output -n monitoring
+kubectl create deploy alertmanager-feishu --image=harbor.inner.galaxy.ksyun.com/luban/feishu-webhook:latest -n monitoring
+kubectl expose deploy/alertmanager-warning -n monitoring --port=8080 --target-port=8080
+kubectl expose deploy/alertmanager-feishu -n monitoring --port=8080 --target-port=8080
+
+cat &lt;&lt;EOF | kubectl -n monitoring apply -f -
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: warning
+  labels:
+    alertmanagerConfig: warning
+    release: pm
+spec:
+  route:
+    groupBy: ['alertname']
+    groupWait: 30s
+    groupInterval: 1m
+    repeatInterval: 1m
+    receiver: 'warning-hook'
+  receivers:
+  - name: 'warning-hook'
+    webhookConfigs:
+    - url: 'http://alertmanager-warning:8080/webhook'
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: feishu
+  labels:
+    alertmanagerConfig: feshu
+    release: pm
+spec:
+  route:
+    groupBy: ['alertname']
+    groupWait: 30s
+    groupInterval: 1m
+    repeatInterval: 1m
+    receiver: 'feishu-hook'
+  receivers:
+  - name: 'feishu-hook'
+    webhookConfigs:
+    - url: 'http://alertmanager-feishu:8080/alertmanager-alert'
+EOF
+</code></pre>
+<h2 id="_25">日志</h2>
+<h4 id="filebeat">配置filebeat</h4>
+<p>修改/etc/filebeat/filebeat.yml，根据不同日志，传入kafka不同topic中</p>
+<pre><code>logging.level: debug
+
+filebeat.inputs:                      # 从这里开始定义每个日志的路径、类型、收集方式等信息
+- type: log                           # 指定收集的类型为 log
+  paths:
+   - /var/log/secure        # 设置 access.log 的路径
+  fields:                             # 设置一个 fields，用于标记这个日志
+    log_topic: topic-for-secure      # 为 fields 设置一个关键字 topic，值为 kafka 中已经设置好的 topic 名称
+- type: log
+  paths:
+   - /var/log/messages          # 设置 info.log 的路径
+  fields:                            # 设置一个 fields，用于标记这个日志
+    log_topic: topic-for-messages       # 为 fields 设置一个关键字 topic，值为 kafka 中已经设置好的 topic 名称
+
+output.kafka:
+  # 是否启动
+  enable: true
+  hosts: [&quot;10.177.152.168:30092&quot;,&quot;10.177.152.168:30093&quot;,&quot;10.177.152.168:30094&quot;]
+  partition.round_robin: #开启kafka的partition分区
+    reachable_only: true
+  worker: 2
+  # 代理要求的ACK可靠性级别
+  # 0=无响应，1=等待本地提交，-1=等待所有副本提交
+  # 默认值是1
+  # 注意:如果设置为0,Kafka不会返回任何ack。出错时，消息可能会悄无声息地丢失。
+  required_acks: 1
+  compression: gzip      #压缩格式
+  max_message_bytes: 10000000    #压缩格式字节大小
+  # topic: '%{[fields.topic]}'        # 根据每个日志设置的 fields.topic 来输出到不同的 topic
+  topic: '%{[fields.log_topic]}'
+</code></pre>
+<h4 id="logstash_1">配置logstash</h4>
+<p>在logging的安装目录，根据不同日志，获取kafka不同topic中,修改values.yaml</p>
+<pre><code>logstashConfig:
+  logstash.yml: |
+    http.host: 0.0.0.0
+    monitoring.elasticsearch.hosts: http://elasticsearch-master:9200
+
+# Allows you to add any pipeline files in /usr/share/logstash/pipeline/
+### ***warn*** there is a hardcoded logstash.conf in the image, override it first
+logstashPipeline:
+  logstash.conf: |
+    input { kafka { bootstrap_servers =&gt; &quot;kafka-0.kafka-headless.elastic-system.svc.cluster.local:9092,kafka-1.kafka-headless.elastic-system.svc.cluster.local:9092,kafka-2.kafka-headless.elastic-system.svc.cluster.local:9092&quot; topics =&gt; [&quot;topic-for-secure&quot;] } }
+    output { elasticsearch { hosts =&gt; [&quot;http://elasticsearch-master:9200&quot;] index =&gt; &quot;topic-for-secure-%{+YYYY.MM.dd}&quot; } }
+#  logstash.conf: |
+#    input {
+#      exec {
+#        command =&gt; &quot;uptime&quot;
+#        interval =&gt; 30
+#      }
+#    }
+#    output { stdout { } }
+</code></pre>
+<p>在k8s中创建新的logstash</p>
+<pre><code>kubectl create ns elastic-system
+export REGISTRY=&quot;harbor.inner.galaxy.ksyun.com&quot;
+helm install {logstash--new-name} ./logstash -n elastic-system  --set imageTag=7.10.1 --set image=$REGISTRY/luban/logstash
+</code></pre>
+<h4 id="kibana_1">配置kibana</h4>
+<p>登录kibana界面，查看es中是否创建新的index</p>
+<p>http://10.177.152.168:9601/app/management/data/index_management/indices</p>
+<p>创建kibana的indexPatterns</p>
+<p>http://10.177.152.168:9601/app/management/kibana/indexPatterns</p>
+<h4 id="_26">配置日志清理</h4>
+<p>需要注意，es中的index需要有@timestamp</p>
+<p>在logging的安装目录，修改</p>
+<pre><code> kk get cm -n elastic-system curator-elasticsearch-curator-config -o yaml
+</code></pre>
+<p><img alt="image-20210325171929064" src="introduction.assets/image-20210325171929064.png" /></p>
+<h1 id="_27">存储容量规划</h1>
+<h2 id="_28">监控</h2>
+<p>磁盘容量规划，首先明确几个概念:</p>
+<ul>
+<li><strong>监控节点</strong>: 一个 exporter 进程被认为是一个监控节点。Manager 在安装 AQUILA时，默认每个节点都会安装一个 node-exporter 收集节点信息(CPU, Memory 等), 每个节点安装一个 tdh-exporter 收集 TDH Services metrics (目前有: HDFS, YARN, ZOOKEEPER, KAFKA, HYPERBASE, INCEPTOR). 故在 TDH 集群上, 每个节点有两个 exporter 进程.</li>
+<li><strong>测量点</strong>: 一个测量点代表了某监控节点上的一个观测对象. 从某测量点采集到的一组样本数据构成一条时间序列（time series).</li>
+<li><strong>抓取间隔</strong>: Promtheus 对某个监控节点采集 metrics 的时间间隔. 一般为同类监控节点设置相同的抓取间隔. AQUILA对应的配置值为: prometheus.node.exporter.scrape_interval(默认15s) 和 prometheus.tdh.exporter.scrape_interval(默认60s)</li>
+<li><strong>保留时间</strong>: 样本数据在磁盘上保存的时间,超过该时间限制的数据就会被删除. 存储在磁盘上的样本都是经过编码之后的样本(对样本进行过数据编码, 一般为 double-delta 编码). AQUILA对应的配置值为 prometheus.storage.retention.time(默认15天)</li>
+<li><strong>活跃样本留存时间</strong>: 留存于内存的活跃样本（已经被编码）在内存保留时间. 在内存中的留存数据越多，查询过往数据的性能越高，但是消耗内存也会增加. 在实际应用中，需要根据所监控的业务的性质，设定合理的内存留存时间. AQUILA对应的配置值为 prometheus.min-block-duration (默认2h), prometheus.max-block-duration(默认26h). Facebook 在论文 《Gorilla: A Fast, Scalable, In-Memory Time Series DataBase》 （Prometheus实现参考论文）中给出了留存内存时间的一般经验: 26 h.</li>
+<li><strong>样本(测量点)大小</strong>: 根据 Prometheus 官方文档说明, 每一个编码后的样本大概占用1-2字节大小</li>
+</ul>
+<h2 id="_29">日志</h2>
+<p>需要根据不同的日志，以及日志的大小规划</p>
+<p>登录kibana查看index使用大小，规划日志的存储</p>
+<p>http://10.177.152.168:9601/app/management/data/index_management/indices</p>
+<h1 id="_30">附录</h1>
+<h3 id="1hosts">青岛1发布环境hosts信息</h3>
+<p>https://wiki.op.ksyun.com/pages/viewpage.action?pageId=157002294</p>
+<h3 id="_31">告警产生流程</h3>
+<ol>
+<li>Prometheus Server监控目标主机上暴露的http接口（这里假设接口A），通过上述Promethes配置的'scrape_interval'定义的时间间隔，定期采集目标主机上监控数据。</li>
+<li>当接口A不可用的时候，Server端会持续的尝试从接口中取数据，直到"scrape_timeout"时间后停止尝试。这时候把接口的状态变为“DOWN”。</li>
+<li>Prometheus同时根据配置的"evaluation_interval"的时间间隔，定期（默认1min）的对Alert Rule进行评估；当到达评估周期的时候，发现接口A为DOWN，即UP=0为真，激活Alert，进入“PENDING”状态，并记录当前active的时间；</li>
+<li>当下一个alert rule的评估周期到来的时候，发现UP=0继续为真，然后判断警报Active的时间是否已经超出rule里的‘for’ 持续时间，如果未超出，则进入下一个评估周期；如果时间超出，则alert的状态变为“FIRING”；同时调用Alertmanager接口，发送相关报警数据。</li>
+<li>AlertManager收到报警数据后，会将警报信息进行分组，然后根据alertmanager配置的“group_wait”时间先进行等待。等wait时间过后再发送报警信息。</li>
+<li>属于同一个Alert Group的警报，在等待的过程中可能进入新的alert，如果之前的报警已经成功发出，那么间隔“group_interval”的时间间隔后再重新发送报警信息。比如配置的是邮件报警，那么同属一个group的报警信息会汇总在一个邮件里进行发送。</li>
+<li>如果Alert Group里的警报一直没发生变化并且已经成功发送，等待‘repeat_interval’时间间隔之后再重复发送相同的报警邮件；如果之前的警报没有成功发送，则相当于触发第6条条件，则需要等待group_interval时间间隔后重复发送。
+同时最后至于警报信息具体发给谁，满足什么样的条件下指定警报接收人，设置不同报警发送频率，这里有alertmanager的route路由规则进行配置。</li>
+</ol>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a877e258.min.js"></script>
+      
+    
+  </body>
+</html>
