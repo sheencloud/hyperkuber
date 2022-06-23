@@ -32,7 +32,7 @@ spec:
           image: "{{ .Values.portal.image.repository }}:{{ .Values.portal.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.portal.image.pullPolicy }}
           env:
-          - name: SMTP_USER
+          - name: HYPERKUBER_SERVER_ADDRESS
             value: http://{{ include "hyperkuber.server" . }}:8080
           ports:
             - name: http
