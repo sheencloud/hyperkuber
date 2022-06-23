@@ -11,21 +11,21 @@ apiVersion: v1
 data:
   config.yaml: |-
     server:
-      name : "Hk-Server"
-      listen : "0.0.0.0:8080"
+      name: "Hk-Server"
+      listen: "0.0.0.0:8080"
 
     mysql:
-      host : "mysql"
-      port : 3306
-      username : "hyperkuber"
-      password : "hyperkuber"
-      database : "hyperkuber"
-      migerate : true
-      log : "DEBUG"
+      host: "mysql"
+      port: 3306
+      username: "hyperkuber"
+      password: "hyperkuber"
+      database: "hyperkuber"
+      migerate: true
+      log: "DEBUG"
 
     redis:
-      addr : "redis:6379"
-      password : ""
+      addr: "redis:6379"
+      password: ""
 kind: ConfigMap
 metadata:
   name: hyperkuber-configmap
@@ -67,7 +67,7 @@ spec:
           - name: config-volume
             mountPath: /hk/config
           - name: chart-volume
-            mountPath: /tmp/hyperkuber/helm/
+            mountPath: /opt/hyperkuber/helm/
       volumes:
         - configMap:
             defaultMode: 420
@@ -77,12 +77,25 @@ spec:
             name: hyperkuber-configmap
           name: config-volume
         - name: chart-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: server-pvc
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: server-pvc
+  namespace: hyperkuber
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi
 ---
 apiVersion: v1
 kind: Service
@@ -138,7 +151,7 @@ spec:
           env:
           # Use secret in real usage
           - name: HYPERKUBER_SERVER_ADDRESS
-            value: "server:8080"
+            value: "http://server:8080"
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
@@ -232,7 +245,8 @@ spec:
               mountPath: /var/lib/mysql
       volumes:
         - name: mysql-persistent-storage
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: mysql-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -263,6 +277,17 @@ data:
   mysql-password: aHlwZXJrdWJlcg==
   mysql-database: aHlwZXJrdWJlcg==
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+  namespace: hyperkuber
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
 ---
 kind: ConfigMap
 apiVersion: v1
@@ -360,10 +385,23 @@ spec:
               subPath: redis.conf
       volumes:
         - name: data
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: redis-pvc
         - name: config
           configMap:
             name: redis
         - name: sys
           hostPath:
             path: /sys
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+  namespace: hyperkuber
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi

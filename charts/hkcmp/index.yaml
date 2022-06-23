@@ -1,0 +1,27 @@
+apiVersion: v1
+entries:
+  hyperkuber:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-21T12:42:24.154487+08:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami/
+      tags:
+      - mysql
+      version: 8.8.28
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami/
+      tags:
+      - redis
+      version: 16.8.6
+    description: A Helm chart for Kubernetes
+    digest: 9ccef32c3ac7d23469cb15917389580f7403013c1130f1afa9761fcdd645737f
+    name: hyperkuber
+    type: application
+    urls:
+    - hyperkuber-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-06-21T12:42:24.147455+08:00"
