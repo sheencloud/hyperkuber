@@ -5,6 +5,7 @@ Hyperkuber是围绕Kubernetes，Openshift开发的云原生管理平台，主要
 ## Hyperkuber Container Platform
 
 ### 产品架构
+![avatar](assets/hkcmp1.png)
 * Portal： hyperkuber用户控制台服务
 * Server： hyperkuber业务逻辑处理以及proxy服务
 * Mysql： hyperkuber数据库

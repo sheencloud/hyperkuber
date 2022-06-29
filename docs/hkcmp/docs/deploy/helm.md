@@ -21,3 +21,5 @@ helm pull sheencloud/hyperkuber
 ```
 helm install hkcmp -f hyperkuber-0.1.0.tgz -n hyperkuber --create-namespace
 ```
+
+## Openshift
