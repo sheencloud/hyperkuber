@@ -184,7 +184,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
+  - host: "console.hyperkuber.io"
+    http:
       paths:
       - path: /
         pathType: Prefix
