@@ -16,7 +16,7 @@ jobs:
         run: git fetch --prune --unshallow
 
       - name: Setup Kubectl
-        uses: actions-hub/kubectl@master
+        uses: actions-hub/kubectl@v1.21.2
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
