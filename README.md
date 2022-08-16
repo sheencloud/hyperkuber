@@ -19,13 +19,13 @@ Based on the HyperKuber container management platform, HyperShift adds support f
 For quick start and demo try out, run the following command as a cluster admin:
 
 ```console
-kubectl apply -f https://manifests.sheencloud.com/manifests/manifests.yaml
+kubectl apply -f https://manifests.sheencloud.com/manifests/manifest.yaml
 ```
 
 Note: Do not store sensitive data on this installation, when pod restarts, all data will be lost. For production installation, run the following command as a cluster admin:
 
 ```console
-kubectl apply -f https://manifests.sheencloud.com/manifests/manifests-persistent.yaml
+kubectl apply -f https://manifests.sheencloud.com/manifests/manifest-persistent.yaml
 ```
 
 Check out pod status in namespace hyperkuber
@@ -44,7 +44,15 @@ Open the ingress in your favourite browser and login with default user/password:
 
 For other installation methods, such as [helm installation](https://charts.sheencloud.com) or [operator installation](https://operator.sheencloud.com), checkout our [online documents](https://docs.sheencloud.com) for more details.
 
+## Resource
 
+[Online Document](https://docs.sheencloud.com/home)
+
+[Customer Center](https://account.sheencloud.com/)
+
+[Discussion Forum](https://github.com/orgs/sheencloud/discussions)
+
+[Slack Channel](https://sheencloud-workspace.slack.com)
 ## Contributing
 
 The source code of all [HyperKuber](https://sheencloud.com) community [Manifests](https://manifests.sheencloud.com)  can be found on Github: <https://github.com/sheencloud/hyperkuber/>
@@ -54,19 +62,12 @@ We'd love to have you contribute! Please refer to our [contribution guidelines](
 
 ## License
 
-<!-- Keep full URL links to repo files because this README syncs from main to gh-pages.  -->
-[Apache 2.0 License](https://github.com/sheencloud/hyperkuber/blob/main/LICENSE).
+Copyright @2018-2022, [SheenCloud](https://sheencloud.com), Inc.
+
+For other thirdparty Licenses, checkout [Notice](https://github.com/sheencloud/hyperkuber/blob/main/NOTICE).
 
 ## Release build status
 
 ![Release](https://github.com/sheencloud/hyperkuber/workflows/Release%20Manifests/badge.svg?branch=main)
 
-# Resource
 
-[Online Document](https://docs.sheencloud.com/home)
-
-[Customer Center](https://account.sheencloud.com/)
-
-[Discussion Forum](https://github.com/orgs/sheencloud/discussions)
-
-[Slack Channel](https://sheencloud-workspace.slack.com)
