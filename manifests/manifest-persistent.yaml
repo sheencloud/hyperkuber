@@ -11,6 +11,8 @@ kind: ServiceAccount
 metadata:
   name: hyperkuber
   namespace: hyperkuber
+  labels: 
+    app.hyperkuber.io/sa : hyperkuber
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -312,23 +314,6 @@ spec:
     requests:
       storage: 20Gi
 ---
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: redis
-  namespace: hyperkuber
-  labels:
-    app: redis
-data:
-  redis.conf: |-
-    dir /data
-    port 6379
-    bind 0.0.0.0
-    appendonly yes
-    protected-mode no
-    requirepass ""
-    pidfile /data/redis-6379.pid
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -361,27 +346,9 @@ spec:
       labels:
         app: redis
     spec:
-      initContainers:
-        - name: system-init
-          image: busybox
-          imagePullPolicy: IfNotPresent
-          command:
-            - "sh"
-            - "-c"
-            - "echo 2048 > /proc/sys/net/core/somaxconn && echo 1 > /proc/sys/vm/overcommit_memory && echo never > /sys/kernel/mm/transparent_hugepage/enabled"
-          securityContext:
-            privileged: true
-            runAsUser: 0
-          volumeMounts:
-            - name: sys
-              mountPath: /sys
       containers:
         - name: redis
-          image: redis
-          command:
-            - "sh"
-            - "-c"
-            - "redis-server /usr/local/etc/redis/redis.conf"
+          image: redis:7.0.3
           ports:
             - containerPort: 6379
           livenessProbe:
@@ -403,19 +370,10 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-            - name: config
-              mountPath: /usr/local/etc/redis/redis.conf
-              subPath: redis.conf
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: redis-pvc
-        - name: config
-          configMap:
-            name: redis
-        - name: sys
-          hostPath:
-            path: /sys
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
