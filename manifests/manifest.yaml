@@ -12,7 +12,7 @@ metadata:
   name: hyperkuber
   namespace: hyperkuber
   labels: 
-    app.hyperkuber.io/sa : hyperkuber2
+    app.hyperkuber.io/sa : hyperkuber
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
