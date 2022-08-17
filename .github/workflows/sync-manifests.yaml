@@ -1,10 +1,11 @@
+name: Sync Manifests
+
 on:
   push:
     branches:
       - 'main'
     paths:
       - 'manifests'
-      - 'operator'
 jobs:
   build:
     runs-on: ubuntu-latest
