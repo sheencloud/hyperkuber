@@ -3,9 +3,7 @@ name: Sync Manifests
 on:
   push:
     branches:
-      - 'main'
-    paths:
-      - 'manifests'
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
