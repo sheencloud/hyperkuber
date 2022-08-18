@@ -275,6 +275,9 @@ spec:
             name: web
             port:
               number: 80
+  tls:
+    - hosts:
+        - console.apps.prod.hyperkuber.io
 ---
 apiVersion: apps/v1
 kind: Deployment
