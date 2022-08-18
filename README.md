@@ -20,6 +20,10 @@ For quick start and demo try out, run the following command as a cluster admin:
 
 ```console
 kubectl apply -f https://manifests.sheencloud.com/manifests/manifest.yaml
+
+or
+
+kubectl apply -f https://manifests.sheencloud.com/manifests/manifest-psp.yaml  #for psp enabled clusters
 ```
 
 Note: Do not store sensitive data on this installation, when pod restarts, all data will be lost. For production installation, run the following command as a cluster admin:
