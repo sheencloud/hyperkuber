@@ -4581,7 +4581,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: sheencloud/hyperkuber-controller:latest
+        image: sheencloud/hyperkuber-operator:latest
         livenessProbe:
           httpGet:
             path: /healthz
