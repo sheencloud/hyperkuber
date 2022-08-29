@@ -151,8 +151,7 @@ spec:
         - image: sheencloud/hyperkuber-web
           imagePullPolicy: Always
           name: hyperkuber-web
-          securityContext:
-            privileged: true
+          securityContext: {}
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
@@ -194,7 +193,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "console.hyperkuber.io"
+  - host: "console.apps.prod.hyperkuber.io"
     http:
       paths:
       - path: /
@@ -204,6 +203,9 @@ spec:
             name: web
             port:
               number: 80
+  tls:
+    - hosts:
+        - console.apps.prod.hyperkuber.io
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -257,6 +259,8 @@ spec:
       volumes:
         - name: mysql-persistent-storage
           emptyDir: {}
+      serviceAccount: hyperkuber
+      serviceAccountName: hyperkuber
 ---
 apiVersion: v1
 kind: Service
@@ -346,4 +350,6 @@ spec:
       volumes:
         - name: data
           emptyDir: {}
+      serviceAccount: hyperkuber
+      serviceAccountName: hyperkuber
 ---
