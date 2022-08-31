@@ -7,6 +7,8 @@
 The HyperKuber container management platform is a powerful tool for those who use kubernetes/containers as their daily job. It provides a centralized management portal for multiple clusters and removes the barriers to deploying applications across multiple clusters. As organizations' adoption of Kubernetes/containers grows, how to control, debug, and troubleshoot containerized applications becomes a pain for developers and engineers. In a multi-cluster environment, HyperKuber provides an effective and easy-to-manage solution for team collaboration and permission distribution. HyperKuber can not only help individuals quickly master the way kubernetes manages applications and improve productivity, but for enterprise organizations, HyperKuber can also serve as a platform for enterprise portals to provide containerized services to their customers.
 
 
+![overview](assets/images/overview.png)
+
 
 + ## HyperShift Container Management Platform (HSCMP)
 
