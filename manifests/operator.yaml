@@ -4562,7 +4562,7 @@ spec:
         - --upstream=http://127.0.0.1:8080/
         - --logtostderr=true
         - --v=0
-        image: sheencloud/kube-rbac-proxy:v0.11.0
+        image: docker.io/sheencloud/kube-rbac-proxy:v0.11.0
         name: kube-rbac-proxy
         ports:
         - containerPort: 8443
@@ -4581,7 +4581,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: sheencloud/hyperkuber-operator:latest
+        image: docker.io/sheencloud/hyperkuber-operator:latest
         livenessProbe:
           httpGet:
             path: /healthz

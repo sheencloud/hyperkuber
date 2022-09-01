@@ -76,7 +76,7 @@ spec:
         app: server
     spec:
       containers:
-        - image: sheencloud/hyperkuber-server
+        - image: docker.io/sheencloud/hyperkuber-server:latest
           imagePullPolicy: Always
           name: hyperkuber-server
           resources: {}
@@ -161,7 +161,7 @@ spec:
         app: web
     spec:
       containers:
-        - image: sheencloud/hyperkuber-web
+        - image: docker.io/sheencloud/hyperkuber-web:latest
           imagePullPolicy: Always
           name: hyperkuber-web
           securityContext:
@@ -207,7 +207,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "console.hyperkuber.io"
+  - host: "console.apps.prod.hyperkuber.io"
     http:
       paths:
       - path: /
@@ -217,6 +217,9 @@ spec:
             name: web
             port:
               number: 80
+  tls:
+    - hosts:
+        - console.apps.prod.hyperkuber.io
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -236,7 +239,7 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:8
+        - image: docker.io/library/mysql:8
           name: mysql
           args:
             - "--default-authentication-plugin=mysql_native_password"
@@ -347,7 +350,7 @@ spec:
     spec:
       containers:
         - name: redis
-          image: redis:7.0.3
+          image: docker.io/library/redis:7.0.3
           ports:
             - containerPort: 6379
           livenessProbe:
